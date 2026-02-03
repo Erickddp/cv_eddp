@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erick Domínguez Del Prado | CV Interactivo</title>
+    <meta name="description"
+        content="CV Interactivo de Erick Domínguez Del Prado - Contador Público enfocado en eficiencia y tecnología.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- No external fonts or libraries, using system fonts -->
+</head>
+
+<body>
+
+    <!-- Progress UI -->
+    <nav class="progress-nav" id="progress-nav">
+        <!-- Dots injected by JS or hardcoded -->
+    </nav>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+            </path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Background & Effects -->
+    <div class="bg-ambient" id="bg-ambient"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+    <div class="overlay-noise"></div>
+
+    <main id="stage">
+
+        <!-- SCENE 1: HERO -->
+        <section class="scene active" data-index="0" id="scene-hero">
+            <div class="scene-content hero-content">
+                <div class="hero-label">CV EDDP</div>
+                <h1 class="hero-name glow-text">
+                    ERICK DOMÍNGUEZ<br>DEL PRADO
+                    <span class="loop-dot"></span>
+                </h1>
+                <h2 class="hero-role">Contador Público</h2>
+
+                <div class="typing-container">
+                    <p class="hero-subtext" id="hero-typewriter">ENFOCADO EN EFICIENCIA Y MEJORA CONTINUA DE PROCESOS
+                        CONTABLES.</p>
+                </div>
+
+                <div class="hero-chips">
+                    <span class="chip">CFDI 4.0</span>
+                    <span class="chip">DIOT</span>
+                    <span class="chip">SAT</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">Power BI</span>
+                    <span class="chip">Dashboards</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="assets/CV_EDDP.pdf" class="btn btn-primary" download>Descargar PDF</a>
+                    <button class="btn btn-secondary" id="btn-start-exp">Ver experiencia</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 2: EXP 1 -->
+        <section class="scene" data-index="1" id="scene-exp-1">
+            <div class="scene-content">
+                <h2 class="section-title">Experiencia</h2>
+                <div class="card expanded">
+                    <div class="card-header">
+                        <h3>Contador Jr</h3>
+                        <span class="company">Corporativo Dormimundo – CDMX</span>
+                        <span class="date">Enero 2023 – Septiembre 2025</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Administración contable de múltiples razones sociales (hasta 20 simultáneamente).</li>
+                        <li>Revisión, validación y control masivo de CFDI 4.0.</li>
+                        <li>Gestión del Buzón Tributario SAT y presentación de DIOT.</li>
+                        <li>Elaboración de estados financieros y conciliaciones.</li>
+                        <li>Desarrollo de flujos automatizados con Python para validación y clasificación de CFDI.</li>
+                        <li>Construcción de dashboards básicos para seguimiento de indicadores internos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 3: EXP 2 -->
+        <section class="scene" data-index="2" id="scene-exp-2">
+            <div class="scene-content">
+                <h2 class="section-title">Experiencia</h2>
+                <div class="card expanded">
+                    <div class="card-header">
+                        <h3>Encargado de Cuentas por Pagar</h3>
+                        <span class="company">PINFRA PDI – CDMX</span>
+                        <span class="date">Febrero 2022 – Enero 2023</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Coordinación de pagos a proveedores y aseguradoras.</li>
+                        <li>Control de registros contables y conciliaciones operativas.</li>
+                        <li>Preparación de reportes financieros internos.</li>
+                        <li>Digitalización de procesos de control de pagos y validación documental.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 4: EXP 3 & 4 (Early) -->
+        <section class="scene" data-index="3" id="scene-exp-early">
+            <div class="scene-content">
+                <h2 class="section-title">Inicios Profesionales</h2>
+
+                <div class="card expanded small-card">
+                    <div class="card-header">
+                        <h3>Auxiliar Administrativo</h3>
+                        <span class="company">Alcaldía Cuajimalpa (Servicio Social)</span>
+                        <span class="date">Agosto 2021 – Enero 2022</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Administración de bases de datos administrativas.</li>
+                        <li>Gestión y organización documental de concursos mercantiles.</li>
+                        <li>Apoyo en gestión y archivo de documentación para control interno.</li>
+                    </ul>
+                </div>
+
+                <div class="card expanded small-card mt-4">
+                    <div class="card-header">
+                        <h3>Auxiliar Contable</h3>
+                        <span class="company">Despacho Contable AM</span>
+                        <span class="date">Agosto 2019 – Marzo 2020</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Registro de pólizas contables.</li>
+                        <li>Elaboración de estados financieros básicos.</li>
+                        <li>Administración de archivo fiscal físico y digital.</li>
+                        <li>Apoyo en captura y control de comprobación documental.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 5: EXP 5 (Dev) -->
+        <section class="scene" data-index="4" id="scene-exp-dev">
+            <div class="scene-content">
+                <h2 class="section-title">Proyectos y Desarrollo</h2>
+                <div class="card expanded">
+                    <div class="card-header">
+                        <h3>Desarrollo independiente y proyectos</h3>
+                        <span class="company">Portafolio personal</span>
+                        <span class="date">Septiembre 2025 – Actualidad</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Desarrollo de páginas web y experiencias interactivas enfocadas en marca personal
+                            profesional.</li>
+                        <li>Construcción de herramientas de automatización para tareas contables y validación
+                            documental.</li>
+                        <li>Proyectos en GitHub y documentación técnica orientada a productividad.</li>
+                        <li>Aprendizaje activo y mejora continua con enfoque en tecnología aplicada.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 6: EDUCATION -->
+        <section class="scene" data-index="5" id="scene-edu">
+            <div class="scene-content split-layout">
+                <div class="text-panel">
+                    <h2 class="section-title">Educación</h2>
+                    <div class="degree-info">
+                        <h3>Licenciatura en Contaduría Pública</h3>
+                        <p class="school">CESCIJUC (2019 a 2023)</p>
+                        <p class="cedula">Cédula Profesional: <span class="highlight">13758780</span></p>
+                    </div>
+                </div>
+                <div class="image-panel">
+                    <div class="doc-card">
+                        <div class="doc-placeholder">
+                            <!-- Placeholder image logic or simply a div -->
+                            <img src="assets/cedula.jpg" alt="Cédula Profesional"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <div class="fallback-text" style="display:none; padding: 2rem; border: 1px dashed white;">
+                                Vista Previa Cédula</div>
+                        </div>
+                        <p class="caption">Documento / Evidencia (opcional)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 7: CERTIFICATIONS -->
+        <section class="scene" data-index="6" id="scene-certs">
+            <div class="scene-content split-layout">
+                <div class="text-panel">
+                    <h2 class="section-title">Certificaciones y formación continua</h2>
+                    <ul class="premium-list">
+                        <li>Automatización con Python</li>
+                        <li>IA para productividad</li>
+                        <li>Ciberseguridad aplicada</li>
+                        <li>Herramientas digitales</li>
+                        <li>Inglés técnico-profesional</li>
+                    </ul>
+                </div>
+                <div class="image-panel">
+                    <div class="portfolio-card interact-hover">
+                        <div class="portfolio-preview">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="wireframe-block"></div>
+                                <div class="wireframe-line"></div>
+                                <div class="wireframe-line short"></div>
+                            </div>
+                            <div class="anim-scanline"></div>
+                        </div>
+                        <a href="https://nsl-reconocimientos.blogspot.com/" target="_blank"
+                            class="btn btn-primary mt-4">Ver
+                            portafolio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 8: SKILLS -->
+        <section class="scene" data-index="7" id="scene-skills">
+            <div class="scene-content">
+                <h2 class="section-title">Habilidades y Herramientas</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3>Fiscal – Contable</h3>
+                        <div class="chips-container delay-1">
+                            <span class="skill-chip">Contabilidad corporativa</span>
+                            <span class="skill-chip">CFDI 4.0</span>
+                            <span class="skill-chip">DIOT</span>
+                            <span class="skill-chip">SAT</span>
+                            <span class="skill-chip">Flujo de efectivo</span>
+                            <span class="skill-chip">Estados financieros</span>
+                            <span class="skill-chip">Conciliaciones bancarias</span>
+                            <span class="skill-chip">Cálculo de impuestos</span>
+                            <span class="skill-chip">Depreciaciones fiscales</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Tecnología aplicada</h3>
+                        <div class="chips-container delay-2">
+                            <span class="skill-chip">Automatización</span>
+                            <span class="skill-chip">Validación masiva de CFDI</span>
+                            <span class="skill-chip">Dashboards BI</span>
+                            <span class="skill-chip">Sistemas documentales</span>
+                            <span class="skill-chip">Integraciones IA</span>
+                            <span class="skill-chip">Fundamentos ciberseguridad</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Herramientas</h3>
+                        <div class="chips-container delay-3">
+                            <span class="skill-chip">Microsoft Office</span>
+                            <span class="skill-chip">Aspel COI</span>
+                            <span class="skill-chip">Dynamics 365</span>
+                            <span class="skill-chip">Power BI</span>
+                            <span class="skill-chip">n8n</span>
+                            <span class="skill-chip">Notion</span>
+                            <span class="skill-chip">Odoo</span>
+                            <span class="skill-chip">Google Workspace</span>
+                            <span class="skill-chip">GitHub</span>
+                            <span class="skill-chip">VS Code</span>
+                            <span class="skill-chip">Linux CLI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENE 9: CONTACT -->
+        <section class="scene" data-index="8" id="scene-contact">
+            <div class="scene-content contact-content">
+                <h2 class="section-title">Contacto</h2>
+
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <svg class="icon icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span class="contact-text">erickddp620@gmail.com</span>
+                        <button class="btn-copy" data-copy="erickddp620@gmail.com">Copiar correo</button>
+                    </div>
+
+                    <div class="contact-card">
+                        <svg class="icon icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span class="contact-text">55 34-80 61-84</span>
+                        <button class="btn-copy" data-copy="55 34-80 61-84">Copiar teléfono</button>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/525534806184?text=Hola%20Erick,%20vi%20tu%20CV%20y%20quiero%20contactarte"
+                    target="_blank" class="btn btn-whatsapp pulse-btn">
+                    Enviar WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="overlay-noise"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
