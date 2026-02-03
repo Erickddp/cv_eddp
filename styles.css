@@ -627,39 +627,192 @@ body.no-cursor .hero-subtext::after {
     transform: translateY(0);
 }
 
-.portfolio-preview {
-    background: #000;
-    height: 150px;
+/* --- TERMINAL CARD (Replaces Portfolio Preview) --- */
+.terminal-card {
+    background: #0f0f0f;
+    border: 1px solid #333;
     border-radius: 8px;
-    position: relative;
+    font-family: 'Courier New', Courier, monospace;
     overflow: hidden;
-    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.browser-dots {
-    position: absolute;
-    top: 8px;
-    left: 8px;
+.terminal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.terminal-header {
+    background: #1a1a1a;
+    padding: 8px 12px;
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 12px;
+}
+
+.terminal-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.terminal-dots span:nth-child(1) {
+    background-color: #ff5f56;
+}
+
+.terminal-dots span:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.terminal-dots span:nth-child(3) {
+    background-color: #27c93f;
+}
+
+.terminal-title {
+    color: #888;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.terminal-body {
+    padding: 12px;
+    background: #0c0c0c;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     gap: 4px;
 }
 
-.browser-dots span {
-    width: 6px;
-    height: 6px;
-    background: #333;
-    border-radius: 50%;
+.term-line {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    line-height: 1.4;
+    opacity: 0;
+    animation: line-reveal 0.1s forwards;
 }
 
-.anim-scanline {
-    position: absolute;
-    top: 0;
-    left: 0;
+.term-line.highlight {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.term-line.success {
+    color: #27c93f;
+}
+
+/* Staggered Animation for Lines */
+.scene.active .term-line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.scene.active .term-line:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.scene.active .term-line:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.scene.active .term-line:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+.scene.active .term-line:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+.scene.active .term-line:nth-child(6) {
+    animation-delay: 0.7s;
+}
+
+@keyframes line-reveal {
+    to {
+        opacity: 1;
+    }
+}
+
+.terminal-footer {
+    padding: 10px 12px;
+    background: #111;
+    border-top: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.tech-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tech-badge {
+    font-size: 0.7rem;
+    background: #222;
+    color: #ccc;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.term-cta {
+    display: block;
     width: 100%;
-    height: 2px;
+    text-align: center;
     background: var(--accent);
-    opacity: 0.5;
-    animation: scan 3s linear infinite;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.term-cta:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Mobile Specific Optimizations */
+@media (max-width: 768px) {
+    .terminal-card {
+        margin-top: 0;
+        /* Remove excess margin if any */
+    }
+
+    .terminal-body {
+        padding: 8px;
+    }
+
+    .term-line {
+        font-size: 0.7rem;
+        /* Smaller monospace font */
+        line-height: 1.2;
+    }
+
+    /* Ensure card doesn't get too tall */
+    .terminal-footer {
+        padding: 8px;
+    }
+
+    .term-cta {
+        padding: 10px 0;
+        /* Larger touch target */
+    }
 }
 
 /* SKILLS */
