@@ -45,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.nav-dot');
 
     // --- 2. Theme Toggle ---
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme =
+        localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     root.setAttribute('data-theme', savedTheme);
 
     themeBtn.addEventListener('click', () => {
