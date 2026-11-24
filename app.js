@@ -179,6 +179,11 @@
         langBtn.setAttribute('aria-label', META[l].langLabel);
         themeBtn.setAttribute('aria-label', META[l].themeLabel);
         langBtn.dataset.active = l;
+        const cv = document.getElementById('cv-link');
+        if (cv) {
+            cv.href = l === 'en' ? 'assets/cv-en.pdf' : 'assets/cv.pdf';
+            cv.setAttribute('download', l === 'en' ? 'Erick-Dominguez-CV-EN.pdf' : 'Erick-Dominguez-CV.pdf');
+        }
         if (typeof setWord === 'function' && document.getElementById('rotator')) setWord(false);
     }
 
