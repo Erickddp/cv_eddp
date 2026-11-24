@@ -55,6 +55,8 @@
 </head>
 
 <body>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
     <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
 
     <!-- ============ HEADER ============ -->
@@ -101,7 +103,7 @@
                 <div class="hero-copy">
                     <p class="status reveal">
                         <span class="pulse" aria-hidden="true"></span>
-                        <span data-i18n="hero.status">Disponible · Remoto · Por proyecto u objetivo</span>
+                        <span data-i18n="hero.status">Abierto a proyectos · Remoto · Por objetivo</span>
                     </p>
 
                     <h1 class="hero-name reveal">Erick Domínguez<br><span class="muted">Del Prado</span></h1>
@@ -110,6 +112,10 @@
                         <span class="accent">AI Engineer</span>
                         <span class="dot" aria-hidden="true">·</span>
                         <span data-i18n="hero.role2">Contador Público</span>
+                    </p>
+                    <p class="hero-rotator reveal" aria-live="off">
+                        <span data-i18n="hero.rot.pre">Automatizo</span>
+                        <span class="rotator" id="rotator"><span class="rot-word">conciliaciones</span></span>
                     </p>
 
                     <p class="hero-lead reveal" data-i18n="hero.lead">
@@ -133,7 +139,7 @@
                         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
                         <span class="term-title">profile.json</span>
                     </div>
-<pre class="term-body"><code>{
+<pre class="term-body" id="term"><code>{
   <span class="k">"role"</span>: <span class="s">"AI Engineer"</span>,
   <span class="k">"domain"</span>: <span class="s">"Finanzas · Fiscal MX"</span>,
   <span class="k">"stack"</span>: [<span class="s">"Python"</span>, <span class="s">"n8n"</span>, <span class="s">"LLMs"</span>, <span class="s">"SQL"</span>],
@@ -142,9 +148,9 @@
   <span class="k">"location"</span>: <span class="s">"CDMX · UTC-6"</span>
 }</code></pre>
                     <dl class="stats">
-                        <div><dt>+5</dt><dd data-i18n="stat.years">años de experiencia</dd></div>
-                        <div><dt>+86</dt><dd data-i18n="stat.companies">empresas administradas</dd></div>
-                        <div><dt>20</dt><dd data-i18n="stat.parallel">razones sociales en paralelo</dd></div>
+                        <div><dt><span class="count" data-to="6">6</span>+</dt><dd data-i18n="stat.years">años de experiencia</dd></div>
+                        <div><dt><span class="count" data-to="86">86</span>+</dt><dd data-i18n="stat.companies">empresas administradas</dd></div>
+                        <div><dt><span class="count" data-to="14">14</span>+</dt><dd data-i18n="stat.parallel">radiodifusoras a mi cargo hoy</dd></div>
                     </dl>
                 </aside>
             </div>
@@ -222,9 +228,9 @@
                             fuente oficial, cifras de ley y reglas de cálculo modeladas como datos. Base para
                             asistentes de IA que responden con referencias, no con suposiciones.</p>
                         <ul class="kpis">
-                            <li><b>27</b><span data-i18n="proj.imx.k1">leyes con fuente</span></li>
-                            <li><b>137</b><span data-i18n="proj.imx.k2">cifras de ley</span></li>
-                            <li><b>129</b><span data-i18n="proj.imx.k3">reglas de cálculo</span></li>
+                            <li><b class="count" data-to="27">27</b><span data-i18n="proj.imx.k1">leyes con fuente</span></li>
+                            <li><b class="count" data-to="137">137</b><span data-i18n="proj.imx.k2">cifras de ley</span></li>
+                            <li><b class="count" data-to="129">129</b><span data-i18n="proj.imx.k3">reglas de cálculo</span></li>
                         </ul>
                         <a class="project-link" href="https://erickddp.github.io/inteligencia-mx/" target="_blank"
                             rel="noopener" data-i18n="proj.explore">Explorar →</a>
@@ -284,11 +290,29 @@
                 <ol class="timeline">
                     <li class="tl-item current">
                         <div class="tl-meta">
+                            <span class="tl-date" data-i18n="exp.r.date">Mar 2026 – Actualidad</span>
+                            <span class="tl-place">Grupo Radio Centro · CDMX</span>
+                        </div>
+                        <div class="tl-body">
+                            <h3 data-i18n="exp.r.role">Contador · Automatización con IA</h3>
+                            <ul>
+                                <li data-i18n="exp.r.b1">Contabilidad y cierre mensual de más de 14 radiodifusoras y
+                                    1 empresa de nómina.</li>
+                                <li data-i18n="exp.r.b2">Flujos asistidos por IA para capturar pólizas, conciliar
+                                    bancos y comparar balanzas contra SAP Business One.</li>
+                                <li data-i18n="exp.r.b3">Registro de traspasos intercompañía y control fiscal del
+                                    grupo.</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="tl-item current">
+                        <div class="tl-meta">
                             <span class="tl-date" data-i18n="exp.0.date">Sep 2025 – Actualidad</span>
                             <span class="tl-place">EDDP Servicios · <span data-i18n="remote">Remoto</span></span>
                         </div>
                         <div class="tl-body">
-                            <h3 data-i18n="exp.0.role">AI Engineer y fundador</h3>
+                            <h3 data-i18n="exp.0.role">AI Engineer y fundador · Proyectos propios</h3>
                             <ul>
                                 <li data-i18n="exp.0.b1">Diseño y desarrollo de Timbra (facturación CFDI 4.0) e
                                     Inteligencia MX (consulta fiscal estructurada).</li>
@@ -395,6 +419,12 @@
                             <li>Aspel COI · Odoo</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee-track">
+                    <span>Python</span><span>n8n</span><span>LLMs</span><span>CFDI 4.0</span><span>SQL</span><span>Power BI</span><span>SAP B1</span><span>APIs</span><span>GitHub</span><span>Agentes de IA</span><span>SAT</span><span>Linux</span>
+                    <span>Python</span><span>n8n</span><span>LLMs</span><span>CFDI 4.0</span><span>SQL</span><span>Power BI</span><span>SAP B1</span><span>APIs</span><span>GitHub</span><span>Agentes de IA</span><span>SAT</span><span>Linux</span>
                 </div>
             </div>
         </section>

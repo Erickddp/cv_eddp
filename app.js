@@ -18,7 +18,8 @@
         'nav.edu': 'Education',
         'nav.contact': 'Contact',
 
-        'hero.status': 'Available · Remote · Project or goal-based',
+        'hero.status': 'Open to projects · Remote · Goal-based',
+        'hero.rot.pre': 'I automate',
         'hero.role2': 'Certified Public Accountant',
         'hero.lead': 'I build automations, AI agents and tax tools that understand how accounting really works in Mexico. Between the models and the numbers, I turn financial problems into systems that run.',
         'hero.cta1': 'See projects',
@@ -26,7 +27,7 @@
         'hero.cta3': 'Download CV (PDF)',
         'stat.years': 'years of experience',
         'stat.companies': 'companies managed',
-        'stat.parallel': 'legal entities in parallel',
+        'stat.parallel': 'radio stations I currently handle',
 
         'value.eyebrow': 'What I solve',
         'value.title': 'AI applied where the money moves',
@@ -71,8 +72,13 @@
         'exp.eyebrow': 'Experience',
         'exp.title': 'From corporate accounting to AI engineering',
         'remote': 'Remote',
+        'exp.r.date': 'Mar 2026 – Present',
+        'exp.r.role': 'Accountant · AI Automation',
+        'exp.r.b1': 'Bookkeeping and month-end close for 14+ radio stations and 1 payroll company.',
+        'exp.r.b2': 'AI-assisted workflows to post journal entries, reconcile banks and compare trial balances against SAP Business One.',
+        'exp.r.b3': 'Intercompany transfers and tax control across the group.',
         'exp.0.date': 'Sep 2025 – Present',
-        'exp.0.role': 'AI Engineer & Founder',
+        'exp.0.role': 'AI Engineer & Founder · Own projects',
         'exp.0.b1': 'Designed and built Timbra (CFDI 4.0 e-invoicing) and Inteligencia MX (structured tax lookup).',
         'exp.0.b2': 'Automations with n8n, Python and LLMs for clients: expense classification, reporting and assistants.',
         'exp.0.b3': 'Websites and online stores for businesses, plus accounting and tax guidance for SMBs.',
@@ -173,6 +179,7 @@
         langBtn.setAttribute('aria-label', META[l].langLabel);
         themeBtn.setAttribute('aria-label', META[l].themeLabel);
         langBtn.dataset.active = l;
+        if (typeof setWord === 'function' && document.getElementById('rotator')) setWord(false);
     }
 
     const langBtn = document.getElementById('lang-toggle');
@@ -255,6 +262,109 @@
                 showToast(text);
             }
         });
+    });
+
+    // ---------- Motion ----------
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Rotating word
+    const WORDS = {
+        es: ['conciliaciones', 'pólizas', 'validación de CFDI', 'reportes financieros', 'cierres mensuales', 'flujos con IA'],
+        en: ['reconciliations', 'journal entries', 'CFDI validation', 'financial reports', 'month-end close', 'AI workflows']
+    };
+    const rot = document.getElementById('rotator');
+    let rotIdx = 0;
+    function setWord(animate) {
+        if (!rot) return;
+        const w = WORDS[lang][rotIdx % WORDS[lang].length];
+        const span = document.createElement('span');
+        span.className = 'rot-word' + (animate ? ' enter' : '');
+        span.textContent = w;
+        const old = rot.querySelector('.rot-word:not(.leave)');
+        if (old && animate) {
+            old.classList.add('leave');
+            setTimeout(() => old.remove(), 500);
+        } else if (old) {
+            old.remove();
+        }
+        rot.appendChild(span);
+    }
+    if (rot) {
+        setWord(false);
+        if (!reduceMotion) setInterval(() => { rotIdx++; setWord(true); }, 2400);
+    }
+
+    // Count-up numbers
+    function countUp(el) {
+        const to = parseInt(el.dataset.to, 10);
+        if (reduceMotion || !to) { el.textContent = to; return; }
+        const dur = 1200, t0 = performance.now();
+        const step = t => {
+            const p = Math.min(1, (t - t0) / dur);
+            el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    }
+    const counters = document.querySelectorAll('.count');
+    if ('IntersectionObserver' in window) {
+        const co = new IntersectionObserver(es => es.forEach(e => {
+            if (e.isIntersecting) { countUp(e.target); co.unobserve(e.target); }
+        }), { threshold: 0.6 });
+        counters.forEach(c => { if (!reduceMotion) c.textContent = '0'; co.observe(c); });
+    }
+
+    // Terminal typing
+    const term = document.getElementById('term');
+    if (term && !reduceMotion) {
+        const code = term.querySelector('code');
+        const full = code.innerHTML;
+        const tokens = full.split(/(<[^>]+>)/).filter(Boolean);
+        code.innerHTML = '';
+        term.classList.add('typing');
+        let i = 0, out = '', ch = 0;
+        const tick = () => {
+            if (i >= tokens.length) { term.classList.remove('typing'); return; }
+            const tk = tokens[i];
+            if (tk[0] === '<') { out += tk; i++; tick(); return; }
+            out += tk[ch++];
+            if (ch >= tk.length) { i++; ch = 0; }
+            code.innerHTML = out;
+            setTimeout(tick, tk[ch - 1] === '\n' ? 90 : 14);
+        };
+        setTimeout(tick, 600);
+    }
+
+    // Spotlight on cards
+    if (window.matchMedia('(hover: hover)').matches && !reduceMotion) {
+        document.querySelectorAll('.tile, .project, .stack-group, .edu-card').forEach(card => {
+            card.classList.add('spot');
+            card.addEventListener('pointermove', e => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--x', (e.clientX - r.left) + 'px');
+                card.style.setProperty('--y', (e.clientY - r.top) + 'px');
+            });
+        });
+    }
+
+    // Scroll progress + timeline fill
+    const bar = document.getElementById('scroll-progress');
+    const tl = document.querySelector('.timeline');
+    function onScrollFx() {
+        const h = document.documentElement.scrollHeight - innerHeight;
+        if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+        if (tl) {
+            const r = tl.getBoundingClientRect();
+            const p = Math.min(1, Math.max(0, (innerHeight * 0.6 - r.top) / r.height));
+            tl.style.setProperty('--fill', p);
+        }
+    }
+    window.addEventListener('scroll', onScrollFx, { passive: true });
+    onScrollFx();
+
+    // Staggered reveal for grid children
+    document.querySelectorAll('.grid-3, .projects, .grid-2, .timeline, .cert-list').forEach(g => {
+        Array.from(g.children).forEach((c, i) => c.style.setProperty('--d', (i * 90) + 'ms'));
     });
 
     // ---------- Init ----------
