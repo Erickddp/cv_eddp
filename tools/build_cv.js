@@ -81,7 +81,7 @@ const T = {
         certT: 'Certificaciones',
         cert: '+50 cursos: Ciberseguridad (12), Fiscal (11), Inteligencia Artificial (9), Privacidad de datos (8), Finanzas corporativas (7), Automatización (5).',
         langT: 'Idiomas',
-        langs: 'Español (nativo) · Inglés (técnico)'
+        langs: 'Español (nativo) · Inglés (intermedio, B1)'
     },
     en: {
         lang: 'en',
@@ -150,7 +150,7 @@ const T = {
         certT: 'Certifications',
         cert: '50+ courses: Cybersecurity (12), Tax (11), Artificial Intelligence (9), Data privacy (8), Corporate finance (7), Automation (5).',
         langT: 'Languages',
-        langs: 'Spanish (native) · English (technical)'
+        langs: 'Spanish (native) · English (intermediate, B1)'
     }
 };
 
