@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>Erick Domínguez · AI Engineer & Contador Público</title>
     <meta name="description" id="meta-desc"
         content="AI Engineer con formación de Contador Público. Automatización, agentes de IA y herramientas fiscales para finanzas y PyMEs. Disponible remoto, por proyecto u objetivo.">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://cv.erickddp.com/">
 
     <!-- Open Graph / redes -->
@@ -24,7 +24,7 @@
         (function () {
             var t = null;
             try { t = localStorage.getItem('theme'); } catch (e) { }
-            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            if (t !== 'dark') t = 'light';
             document.documentElement.setAttribute('data-theme', t);
             document.documentElement.classList.add('js');
         })();
